@@ -11,7 +11,7 @@ const spinnerVariants = cva(
         size: {
             default: "h-4 w-4",
             sm: "h-2 w-2",
-            lg: "h-6 w-6",
+            lg:     "h-6 w-6",
             icon: "h-10 w-10"
         }
       },  
