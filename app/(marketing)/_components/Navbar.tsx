@@ -8,6 +8,7 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
+
 import { Button } from "@/components/ui/button";
 
 {
@@ -18,24 +19,24 @@ export const Navbar = () => {
     const scrolled = useScrollTop();
     return (
         <div className={cn(
-            "z-50 bg-background fixed top-0 flex items-center w-full p-6 dark:bg-[#1F1F1F]",
-            scrolled && "border-b shadow-sm"
+          "z-50 bg-background dark:bg-[#1F1F1F] fixed top-0 flex items-center w-full p-6",
+          scrolled && "border-b shadow-sm"
         )}>
-            <Logo />
-            <div className="md: ml-auto md:justify-end 
-            justify-between w-full flex items-center gap-x-2">
-                {isLoading&&(
-                    <Spinner />
-                )}
-                {!isAuthenticated&&!isLoading&&(
+          <Logo />
+    
+          <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+        {isLoading && (
+          <Spinner />
+        )}
+                {!isAuthenticated && !isLoading && (
                     <>
                         <SignInButton mode="modal">
                             <Button variant="ghost" size="sm">
                                 Log in
                             </Button>
                         </SignInButton>
-                        <SignInButton variant="ghost" className="text-white bg-pink-500" mode="modal">
-                            <Button  size="sm">
+                        <SignInButton  mode="modal">
+                            <Button variant="ghost" className="text-white bg-pink-500" size="sm">
                                 Get Notes Free
                             </Button>
                         </SignInButton>
