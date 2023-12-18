@@ -1,11 +1,12 @@
 "use client";
-
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button"
 import { useConvexAuth } from "convex/react";
-import { Spinner } from "@/components/spinner";
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/spinner";
+
 
 export const Heading = () => {
     const { isAuthenticated, isLoading } = useConvexAuth();
@@ -18,28 +19,28 @@ export const Heading = () => {
             <h3 className="text-base sm:text-xl md:text-2xl font-medium">
                 Organize suas informações de maneira fácil e rápida.
             </h3>
-            {isLoading&&(
+            {isLoading && (
                 <div className="w-full flex items-center justify-center">
-                <Spinner size="lg" />
-                </div>
+                     <Spinner size="lg" />
+                 </div>
             )}
-            {isAuthenticated && !isLoading && (
-                <Button variant="ghost" className="text-white bg-pink-500" asChild>
-                    <Link href="/documents">
-                    Enter Notes
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                </Button>
-            )}
-            
-            {!isAuthenticated && !isLoading && (
-                <SignInButton mode="modal">
-                    Get Notes
-                    <ArrowRight className="h-4 w-4 ml-2"/>
-                </SignInButton>
-            )}
-            
-        </div>
+      {isAuthenticated && !isLoading && (
+        <Button  className="text-white bg-pink-500" variant="ghost" asChild>
+          <Link href="/documents">
+            Enter Notes
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Link>
+        </Button>
+      )}
+      {!isAuthenticated && !isLoading && (
+        <SignInButton mode="modal">
+          <Button  className="text-white bg-pink-500" variant="ghost">
+            Get Notes
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Button>
+        </SignInButton>
+      )}
+    </div>
 
     )
 }

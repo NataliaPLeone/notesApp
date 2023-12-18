@@ -1,13 +1,15 @@
 "use client";
 
-import Link from "next/link";
+
 import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
+import Link from "next/link";
+
 import { Spinner } from "@/components/spinner";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
-import { Logo } from "./Logo";
+import { Logo } from "./logo";
 
 import { Button } from "@/components/ui/button";
 
@@ -42,15 +44,15 @@ export const Navbar = () => {
                         </SignInButton>
                     </>
                 )}
-                {isAuthenticated&&!isLoading && (
+                {isAuthenticated && !isLoading && (
                     <>
                         <Button variant="ghost" size="sm" asChild>
-                            <Link href="/documments">
+                            <Link href="/documents">
                                 Enter Notes
                             </Link>
                         </Button>
                         <UserButton
-                        afterSignOutUrl="/"
+              afterSignOutUrl="/"
                         />
                     </>
                 )}
