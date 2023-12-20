@@ -26,6 +26,6 @@ export const Spinner =({
     size,
 }: SpinnerProps) => {
     return (
-        <Loader classname={cn(spinnerVariants({ size }))}/>
+        <Loader className={cn(spinnerVariants({ size }))}/>
     )
 };
